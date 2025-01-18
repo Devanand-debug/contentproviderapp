@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Contest Data Provider</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="generate">Generate</string>
+    <string name="clear_all">Clear All</string>
+    <string name="enter_string_length">Enter string length</string>
+    <string name="generated_string">Generated String</string>
+    <string name="length_0">Length: 0</string>
+    <string name="created_date">Created: Date</string>
+    <string name="delete">Delete</string>
+</resources>
