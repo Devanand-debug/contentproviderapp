@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace = "com.iav.contestdataprovider"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.iav.contestdataprovider"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

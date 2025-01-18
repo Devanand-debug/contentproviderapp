@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.iav.contestdataprovider.databinding.FragmentRandomStringBinding
 import com.iav.contestdataprovider.viewmodel.RandomStringViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,8 @@ class RandomStringFragment : Fragment() {
         val adapter = RandomStringAdapter { position ->
             viewModel.deleteString(position)
         }
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         binding.recyclerView.adapter = adapter
 
         viewModel.randomStrings.observe(viewLifecycleOwner) { list ->

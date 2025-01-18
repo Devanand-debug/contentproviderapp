@@ -1,6 +1,7 @@
 package com.iav.contestdataprovider.viewmodel
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -23,9 +24,6 @@ class RandomStringViewModel @Inject constructor(
 
     private val stringsList = mutableListOf<RandomString>()
 
-//    init {
-//        _stringList.value = emptyList()
-//    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun generateRandomString(length: Int) {
@@ -42,8 +40,8 @@ class RandomStringViewModel @Inject constructor(
                 randomString?.let {
                     //database.randomStringDao().insert(it)
                     stringsList.add(it)
+                    Log.e("btnClick11", "$stringsList")
                     _randomStrings.postValue(stringsList)
-                  //  loadAllRandomStrings()
                 }
             }catch (e : Exception){
                 e.printStackTrace()
@@ -59,27 +57,13 @@ class RandomStringViewModel @Inject constructor(
 //        _randomStrings .value = emptyList()
 //    }
     fun clearAllStrings() {
-//        stringsList.clear()
-//        _randomStrings.value = stringsList
-    viewModelScope.launch {
-       // database.randomStringDao().deleteAll()
-        loadAllRandomStrings() // Refresh list
-    }
+        stringsList.clear()
+        _randomStrings.value = stringsList
     }
 
-    fun deleteString(randomString: Int) {
-//        stringsList.removeAt(index)
-//        _randomStrings .value = stringsList
-        viewModelScope.launch {
-            stringsList.removeAt(randomString)
-          //  database.randomStringDao().delete(stringsList as RandomString)
-            loadAllRandomStrings() // Refresh list
-        }
+    fun deleteString(index: Int) {
+        stringsList.removeAt(index)
+        _randomStrings .value = stringsList
     }
 
-    private fun loadAllRandomStrings() {
-//        viewModelScope.launch {
-//            _randomStrings.postValue(database.randomStringDao().getAll())
-//        }
-    }
 }
